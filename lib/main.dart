@@ -23,7 +23,33 @@ class TodoListPage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Text('リスト一覧'),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) {
+              return TodoAddPage();
+            }),
+          );
+        },
+        child: Icon(Icons.add),
+      ),// This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class TodoAddPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: TextButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text('リスト追加画面（クリックで戻る）'),
+        ),
+      ),
     );
   }
 }
